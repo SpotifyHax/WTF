@@ -11,5 +11,5 @@ import com.netflix.database.entities.Actor;
 @RepositoryRestResource(collectionResourceRel="actor", path="actors")
 public interface ActorRepositoryHATEOAS extends JpaRepository<Actor, Integer>{
 	List<Actor> findByName(@Param("name") String name);
-	Actor findByID(@Param("id") int id);
+	Actor findById(@Param("id") int id);
 }

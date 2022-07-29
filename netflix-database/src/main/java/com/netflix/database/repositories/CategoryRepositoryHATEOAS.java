@@ -11,5 +11,5 @@ import com.netflix.database.entities.Category;
 @RepositoryRestResource(collectionResourceRel="category", path="categorys")
 public interface CategoryRepositoryHATEOAS extends JpaRepository<Category, Integer>{
 	List<Category> findByName(@Param("name") String name);
-	Category findByID(@Param("id") int id);
+	Category findById(@Param("id") int id);
 }

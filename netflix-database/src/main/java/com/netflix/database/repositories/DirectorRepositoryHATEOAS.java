@@ -11,5 +11,5 @@ import com.netflix.database.entities.Director;
 @RepositoryRestResource(collectionResourceRel="director", path="directors")
 public interface DirectorRepositoryHATEOAS extends JpaRepository<Director, Integer>{
 	List<Director> findByName(@Param("name") String name);
-	Director findByID(@Param("id") int id);
+	Director findById(@Param("id") int id);
 }

@@ -11,5 +11,5 @@ import com.netflix.database.entities.Title;
 @RepositoryRestResource(collectionResourceRel="title", path="titles")
 public interface TitleRepositoryHATEOAS extends JpaRepository<Title, Integer>{
 	List<Title> findByName(@Param("name") String name);
-	Title findByID(@Param("id") int id);
+	Title findById(@Param("id") int id);
 }

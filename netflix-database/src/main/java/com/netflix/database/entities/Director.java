@@ -7,12 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Director{
 	
+	public Set<Title> getTitleId() {
+		return titleId;
+	}
+
+	public void setTitleId(Set<Title> titleId) {
+		this.titleId = titleId;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -42,8 +51,6 @@ public class Director{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public String getName(){
         return name;

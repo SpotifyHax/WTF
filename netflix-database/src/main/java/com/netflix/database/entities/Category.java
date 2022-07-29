@@ -2,6 +2,7 @@ package com.netflix.database.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Category {
 	
 
 	@NotEmpty
+	@Column(unique=true)
 	private String name;
 	
 	@ManyToMany

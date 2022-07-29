@@ -2,10 +2,14 @@ package com.netflix.database.entities;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
 
@@ -15,6 +19,8 @@ public class Title {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
+	
+	@Column(unique=true)
 	private String name;
 	private String date_added;
 	private String release_year;
@@ -23,7 +29,9 @@ public class Title {
 	private String description;
 	private double user_rating;
 	
-	@ManyToMany
+	@ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "title_actor", joinColumns = @JoinColumn(name = "actor_id"),
+	inverseJoinColumns = @JoinColumn(name = "title_id"))
 	Set<Actor> actor;
 	
 	@ManyToMany

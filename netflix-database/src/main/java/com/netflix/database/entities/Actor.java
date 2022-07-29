@@ -24,8 +24,8 @@ public class Actor{
 	@NaturalId
     private String name;
     
-	@ManyToMany(mappedBy = "actor")
-	private Set<Title> titleId = new HashSet<>();;
+	@ManyToMany
+	Set<Title> titleId;
 	
     public Actor() {
 		super();

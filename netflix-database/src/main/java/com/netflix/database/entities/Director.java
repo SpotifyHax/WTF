@@ -19,7 +19,6 @@ public class Director{
 	
 
 	@NotEmpty
-	@Column(unique=true)
     private String name;
 	
 	@ManyToMany

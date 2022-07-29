@@ -29,9 +29,7 @@ public class Title {
 	private String description;
 	private double user_rating;
 	
-	@ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "title_actor", joinColumns = @JoinColumn(name = "actor_id"),
-	inverseJoinColumns = @JoinColumn(name = "title_id"))
+	@ManyToMany
 	Set<Actor> actor;
 	
 	@ManyToMany

@@ -1,13 +1,17 @@
 package com.netflix.database.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.NaturalId;
 
 @Entity
 public class Actor{
@@ -17,11 +21,11 @@ public class Actor{
 	private Integer id;
 	
 
-	@NotEmpty
+	@NaturalId
     private String name;
     
-	@ManyToMany
-	Set<Title> titleId;
+	@ManyToMany(mappedBy = "actor")
+	private Set<Title> titleId = new HashSet<>();;
 	
     public Actor() {
 		super();
@@ -68,8 +72,7 @@ public class Actor{
         this.name=name;
     }
 
-
-
+    
 	@Override
 	public String toString() {
 		return "Actor [id=" + id + ", name=" + name + ", titleId=" + titleId + "]";

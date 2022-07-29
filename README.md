@@ -11,3 +11,11 @@
     - mysql -hserver -ugftxx -pgftxx (xx remplazar por vuestro número)
     - Ir a gftxx
     - Copiar y pegar todo el esquema
+
+truncate table actor;
+truncate table title;
+truncate table director;
+truncate table category;
+truncate table title_actor;
+truncate table title_director;
+truncate table title_category;
